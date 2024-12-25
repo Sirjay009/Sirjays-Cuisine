@@ -9,3 +9,20 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+class Table(models.Model):
+    number = models.IntegerField(unique=True)
+    capacity = models.IntegerField()
+
+    def __str__(self):
+        return f"Table {self.number} (Capacity: {self.capacity})"
+
+class Reservation(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    date = models.DateField()
+    time = models.TimeField()
+    guests = models.IntegerField()
+
+    def __str__(self):
+        return f"Reservation for {self.guests} guests on {self.date} at {self.time}"
