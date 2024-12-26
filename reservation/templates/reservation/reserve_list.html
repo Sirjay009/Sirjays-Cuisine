@@ -10,8 +10,7 @@
     <h1>Reserve List</h1>
     {% for reserve in object_list %}
     <h2>{{ reserve.table }}</h2>
-    <p>{{ reserve.menu }}</p>
-    <p>Guest: {{reserve.guest }}</p>
+    <p>Guest: {{reserve.guests }}</p>
     {% endfor %}  
 </body>
 </html>
