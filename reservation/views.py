@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Reservation
+from django.views import View
+from django.http import HttpResponse
 from .forms import CustomerForm, ReservationForm
 
 # Create your views here.
+class ReservationView(View):
+    def get(self, request):
+        return HttpResponse("Reservation Page")
+
 def customer_details(request):
     if request.method == "POST":
         customer_form = CustomerForm(request.POST)

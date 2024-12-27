@@ -8,4 +8,3 @@ from .models import Home
 
 class HomeList(generic.ListView):
     queryset = Home.objects.all()
-    template_name = "home/home.html"
