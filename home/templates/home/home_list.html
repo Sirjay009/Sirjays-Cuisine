@@ -15,11 +15,11 @@
         </div>
     </section>
     <hr>
-    <section class="mt-5">
+    <section class="menu mt-5">
         <h3 class="text-center">Menu Highlights</h3>
         <div class="row mt-4">
             {% for menu in object_list %}
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card">
                     <img src="{{ menu.image.url }}" class="card-img-top" alt="{{ menu.dish }}">
                     <div class="card-body">
