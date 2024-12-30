@@ -5,33 +5,37 @@
 
 <!-- home.html content starts here -->
 <article class="container">
-    <section class="callout">
+    <div class="masthead">
         <div class="opaque-overlay">&nbsp;</div>
         <div class="row">
-            <div class="col-12 jumbotron text-center">
-                <h1 class="jumbotron-header">{{ home.title }}</h1>
-                <p class="lead">{{ home.slogan }}</p>
+            <div class="col-12">
+                {% for home in home_list %}
+                <header>
+                    <h1 class="header">{{ home.title }}</h1>
+                    <p class="lead">{{ home.slogan }}</p>
+                </header>
+                {% endfor %}
             </div>
         </div>
-    </section>
-    <hr>
-    <section class="menu mt-5">
+    </div>
+
+    <div class="menu-container mt-5">
         <h3 class="text-center">Menu Highlights</h3>
-        <div class="row mt-4">
-            {% for menu in object_list %}
+        <div class="row">
             <div class="col-md-3">
-                <div class="card">
-                    <img src="{{ menu.image.url }}" class="card-img-top" alt="{{ menu.dish }}">
+                <div class="card menu-item">
+                    {% for item in menu_items %}
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.dish }}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ menu.dish }}</h5>
-                        <p class="card-text">{{ menu.description }}</p>
-                        <p class="card-text text-primary">Price: ${{ menu.price }}</p>
+                        <h5 class="card-title">{{ item.dish }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text text-primary">Price: ${{ items.price }}</p>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
-    </section>
+    </div>
 </article>
 <!-- home.html content ends here -->
 {% endblock %}
