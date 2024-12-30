@@ -19,21 +19,23 @@
         </div>
     </div>
 
-    <div class="menu-container mt-5">
-        <h3 class="text-center">Menu Highlights</h3>
+    <div class="container mt-5">
+        <h3 class="text-center">Today's Menu Highlights</h3>
         <div class="opaque-overlay">&nbsp;</div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card menu-item">
-                    {% for item in menu_items %}
-                    <img src="{{ item.image.url }}" class="menu-image" alt="{{ item.dish }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item.dish }}</h5>
-                        <p class="card-text">{{ item.description }}</p>
-                        <p class="card-text text-primary">Price: ${{ item.price }}</p>
+        <div class="menu-container">
+            <div class="row">
+                {% for item in menu_items %}
+                <div class="col-md-3">
+                    <div class="card menu-item">
+                        <img src="{{ item.image.url }}" class="menu-image" alt="{{ item.dish }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.dish }}</h5>
+                            <p class="card-text">{{ item.description }}</p>
+                            <p class="card-text text-primary">Price: ${{ item.price }}</p>
+                        </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
