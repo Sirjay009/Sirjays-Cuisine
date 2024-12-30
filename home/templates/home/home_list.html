@@ -3,8 +3,10 @@
 
 {% block content %}
 
-<!-- home.html content starts here -->
+<!-- home_list.html content starts here -->
 <article class="container">
+
+<!--Home model's contents rendering starts here-->
     <div class="masthead header-container">
         <div class="opaque-overlay">&nbsp;</div>
         <div class="row">
@@ -14,24 +16,27 @@
                     <h1 class="header">{{ item.title }}</h1>
                 </header>
                 <p class="lead">{{ item.slogan | safe }}</p>
+                <button type="button" class="btn btn-outline-dark">Make a Reservation</button>
                 {% endfor %}
             </div>
         </div>
     </div>
+<!--/Home model's contents rendering ends here-->
 
+<!--Menu model's items rendering starts here-->
     <div class="container mt-5">
         <h3 class="text-center">Today's Menu Highlights</h3>
         <div class="opaque-overlay">&nbsp;</div>
         <div class="menu-container">
-            <div class="row">
+            <div class="row align-items-stretch">
                 {% for item in menu_items %}
                 <div class="col-md-3">
-                    <div class="card menu-item">
+                    <div class="card menu-item h-100">
                         <img src="{{ item.image.url }}" class="menu-image" alt="{{ item.dish }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ item.dish }}</h5>
                             <p class="card-text">{{ item.description }}</p>
-                            <p class="card-text text-primary">Price: ${{ item.price }}</p>
+                            <p class="card-text text-primary">Price: €{{ item.price }}</p>
                         </div>
                     </div>
                 </div>
@@ -39,8 +44,10 @@
             </div>
         </div>
     </div>
+<!--/Menu items rendering ends here-->
+
 </article>
-<!-- home.html content ends here -->
+<!-- /home_list.html content ends here -->
 {% endblock %}
 
 {% block copyright %}
