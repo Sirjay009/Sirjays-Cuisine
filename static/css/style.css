@@ -1,12 +1,10 @@
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-}
-
-.menu-item {
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
+.header-background {
+    background-image: url('../images/restaurant.jpg');
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 50px; /* Adds space inside the container */
+    border-radius: 12px; /* Optional: Adds rounded corners */
+    text-align: center; /* Centers the text */
+    color: white; /* Ensures text is readable on a dark background */
 }

@@ -5,15 +5,15 @@
 
 <!-- home.html content starts here -->
 <article class="container">
-    <div class="masthead">
+    <div class="masthead header-container">
         <div class="opaque-overlay">&nbsp;</div>
         <div class="row">
-            <div class="col-12">
-                {% for home in home_list %}
+            <div class="col-12 text-center">
+                {% for item in home %}
                 <header>
-                    <h1 class="header">{{ home.title }}</h1>
-                    <p class="lead">{{ home.slogan }}</p>
+                    <h1 class="header">{{ item.title }}</h1>
                 </header>
+                <p class="lead">{{ item.slogan | safe }}</p>
                 {% endfor %}
             </div>
         </div>
@@ -21,15 +21,16 @@
 
     <div class="menu-container mt-5">
         <h3 class="text-center">Menu Highlights</h3>
+        <div class="opaque-overlay">&nbsp;</div>
         <div class="row">
             <div class="col-md-3">
                 <div class="card menu-item">
                     {% for item in menu_items %}
-                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.dish }}">
+                    <img src="{{ item.image.url }}" class="menu-image" alt="{{ item.dish }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ item.dish }}</h5>
                         <p class="card-text">{{ item.description }}</p>
-                        <p class="card-text text-primary">Price: ${{ items.price }}</p>
+                        <p class="card-text text-primary">Price: ${{ item.price }}</p>
                     </div>
                     {% endfor %}
                 </div>
