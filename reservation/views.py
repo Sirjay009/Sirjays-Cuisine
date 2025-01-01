@@ -1,10 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
-from django.views import View
-from django.http import HttpResponse
 from .forms import ReservationForm
+from .models import Reservation
 
 # Create your views here.
-class ReservationView(View):
-    def get(self, request):
-        return HttpResponse("Reservation Page")
+
+
+def reservation_view(request):
+    reservation = Reservation.objects.all()
+    reservation_form = ReservationForm()
+    return render(
+        request, 
+        'reservation/reservation_list.html', 
+        {
+            'reservation': reservation,
+            'reservation_form': reservation_form,
+            },)
