@@ -6,7 +6,8 @@ from .models import Reservation
 
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
+
     list_display = (
         'name', 'email', 'phone', 'reservation_date', 'reservation_time',
-        'guests', 'special_request',
+        'guests', 'special_request', 'status',
     )

@@ -7,5 +7,5 @@ class ReservationForm(forms.ModelForm):
         model = Reservation
         fields = (
             'name', 'email', 'phone', 'reservation_date', 'reservation_time',
-            'guests', 'special_request',
+            'guests', 'special_request'
             )
