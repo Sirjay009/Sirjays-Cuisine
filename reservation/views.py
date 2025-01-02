@@ -7,8 +7,19 @@ from .models import Reservation
 
 
 def reservation_view(request):
+
+    if request.method == "POST":
+        reservation_form = ReservationForm(data=request.POST)
+        if reservation_form.is_valid():
+            reservation_form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                "Reservation successfully made!"
+            )
+
     reservation = Reservation.objects.all()
     reservation_form = ReservationForm()
+    
     return render(
         request, 
         'reservation/reservation_list.html', 

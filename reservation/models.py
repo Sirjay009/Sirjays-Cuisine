@@ -3,10 +3,11 @@ from datetime import date, time
 
 # Create your models here.
 STATUS_CHOICES = (
-        ('Pending', 'Pending'),
-        ('Confirmed', 'Confirmed'),
-        ('Cancelled', 'Cancelled')
-    )
+    ('Pending', 'Pending'),
+    ('Confirmed', 'Confirmed'),
+    ('Cancelled', 'Cancelled')
+)
+
 
 class Reservation(models.Model):
     name = models.CharField(max_length=100)
