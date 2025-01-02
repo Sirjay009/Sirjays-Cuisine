@@ -1,16 +1,26 @@
 from django.db import models
-from django.utils.timezone import now
+from datetime import date, time
 
 # Create your models here.
 
 
 class Reservation(models.Model):
-    name = models.CharField(max_length=100, default="Unnamed Reservation")
-    email = models.EmailField(default="noreply@example.com")
+    STATUS_CHOICES = [
+        ('Pending', 'Pending'),
+        ('Confirmed', 'Confirmed'),
+        ('Cancelled', 'Cancelled'),
+    ]
+
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
     phone = models.CharField(max_length=15, default="Unknown")
-    created_at = models.DateTimeField(default=now)
-    guests = models.IntegerField()
-    message = models.TextField(default="Default message")
+    reservation_date = models.DateField(default=date.today)
+    reservation_time = models.TimeField(default=time(13, 0))
+    guests = models.IntegerField(default=1)
+    special_request = models.TextField(null=True, blank=True)
+    status = models.CharField(
+        max_length=50, choices=STATUS_CHOICES, default='Pending')
 
     def __str__(self):
-        return self.name if self.name else "Unnamed Reservation"
+        return
+        f"Reservation for {self.name} on {self.reservation_date} at {self.reservation_time}"

@@ -6,5 +6,6 @@ class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = (
-            'name', 'email', 'phone', 'created_at', 'guests', 'message'
+            'name', 'email', 'phone', 'reservation_date', 'reservation_time',
+            'guests', 'special_request',
             )
