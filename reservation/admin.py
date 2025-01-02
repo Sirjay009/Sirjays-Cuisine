@@ -7,5 +7,5 @@ from .models import Reservation
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'email', 'phone', 'date', 'time', 'guests', 'message'
+        'name', 'email', 'phone', 'created_at', 'guests', 'message'
     )
