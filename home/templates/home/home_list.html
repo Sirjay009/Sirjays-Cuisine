@@ -32,10 +32,10 @@
                 {% for item in menu_items %}
                 <div class="col-md-3">
                     <div class="card menu-item h-100">
-                        {% if "placeholder" in menu.featured_image.url %}
+                        {% if "placeholder" in item.featured_image.url %}
                         <img class="scale" src="{% static 'images/restaurant.jpg' %}" alt="placeholder image">
                         {% else %}
-                        <img class="scale" src=" {{ menu.featured_image.url }}" alt="{{ menu.title }}">
+                        <img class="scale" src=" {{ item.featured_image.url }}" alt="{{ item.dish }}">
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ item.dish }}</h5>
