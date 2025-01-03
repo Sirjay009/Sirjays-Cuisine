@@ -6,7 +6,7 @@
 <!-- home_list.html content starts here -->
 <article class="container">
 
-<!--Home model's contents rendering starts here-->
+    <!--Home model's contents rendering starts here-->
     <div class="masthead header-container">
         <div class="opaque-overlay">&nbsp;</div>
         <div class="row">
@@ -21,9 +21,9 @@
             </div>
         </div>
     </div>
-<!--/Home model's contents rendering ends here-->
+    <!--/Home model's contents rendering ends here-->
 
-<!--Menu model's items rendering starts here-->
+    <!--Menu model's items rendering starts here-->
     <div class="container mt-5">
         <h3 class="text-center">Today's Menu Highlights</h3>
         <div class="opaque-overlay">&nbsp;</div>
@@ -32,7 +32,11 @@
                 {% for item in menu_items %}
                 <div class="col-md-3">
                     <div class="card menu-item h-100">
-                        <img src="{{ item.image.url }}" class="menu-image" alt="{{ item.dish }}">
+                        {% if "placeholder" in menu.featured_image.url %}
+                        <img class="scale" src="{% static 'images/restaurant.jpg' %}" alt="placeholder image">
+                        {% else %}
+                        <img class="scale" src=" {{ menu.featured_image.url }}" alt="{{ menu.title }}">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ item.dish }}</h5>
                             <p class="card-text">{{ item.description }}</p>
@@ -44,7 +48,7 @@
             </div>
         </div>
     </div>
-<!--/Menu items rendering ends here-->
+    <!--/Menu items rendering ends here-->
 
 </article>
 <!-- /home_list.html content ends here -->
@@ -55,7 +59,7 @@
 Sirjay's Cuisine 2024
 <div class="opaque-overlay">&nbsp;</div>
 <div class="text-white text-center">
-<p style="margin:0;">Address: 124 Schulenburger Str. Hannover Germany</p>
-<p>Tel: +49176711858810</p>
+    <p style="margin:0;">Address: 124 Schulenburger Str. Hannover Germany</p>
+    <p>Tel: +49176711858810</p>
 </div>
 {% endblock %}

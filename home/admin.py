@@ -11,4 +11,4 @@ class HomeAdmin(SummernoteModelAdmin):
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ('dish', 'description', 'price', 'image',)
+    list_display = ('dish', 'description', 'price', 'featured_image',)
