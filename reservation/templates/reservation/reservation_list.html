@@ -3,19 +3,33 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-12 col-md-6 my-5">
-        <div class="text-container text-center">
-            <h2>Make a Reservation</h2>
-            <p>let's be your host!</p>
+<article class="container">
+
+    <div class="masthead page-container">
+        <div class="opaque-overlay">&nbsp;</div>
+        <div class="row">
+            <div class="col-12 text-center">
+                {% for page in page_items %}
+                <header>
+                    <h1 class="header">{{ page.label }}</h1>
+                </header>
+                <p class="lead">{{ page.banner | safe }}</p>
+                {% endfor %}
+
+            </div>
         </div>
-        <form method="post">
-            {{ reservation_form | crispy }}
-            {% csrf_token %}
-            <button class="btn btn-outline-dark" type="submit">Reserve</button>
-        </form>
     </div>
-</div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5">
+            <form method="post">
+                {{ reservation_form | crispy }}
+                {% csrf_token %}
+                <button class="btn btn-outline-dark" type="submit">Reserve</button>
+            </form>
+        </div>
+    </div>
+
+</article>
 {% endblock %}
 
 {% block copyright %}
@@ -25,4 +39,6 @@ Sirjay's Cuisine 2024
     <p style="margin:0;">Address: 124 Schulenburger Str. Hannover Germany</p>
     <p>Tel: +49176711858810</p>
 </div>
+
+</article>
 {% endblock %}

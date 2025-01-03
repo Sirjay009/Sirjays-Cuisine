@@ -9,6 +9,13 @@ STATUS_CHOICES = (
 )
 
 
+class Page(models.Model):
+    label = models.CharField(max_length=200)
+    banner = models.TextField()
+
+    def __str__(self):
+        return self.label
+
 class Reservation(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

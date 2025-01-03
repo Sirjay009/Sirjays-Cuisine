@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import ReservationForm
-from .models import Reservation
+from .models import Reservation, Page
 
 # Create your views here.
 
@@ -19,11 +19,13 @@ def reservation_view(request):
 
     reservation = Reservation.objects.all()
     reservation_form = ReservationForm()
+    page_items = Page.objects.all()
+
+    context = {
+        'reservation': reservation,
+        'reservation_form': reservation_form,
+        'page_items': page_items
+    }
     
     return render(
-        request, 
-        'reservation/reservation_list.html', 
-        {
-            'reservation': reservation,
-            'reservation_form': reservation_form,
-            },)
+        request, 'reservation/reservation_list.html', context)

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Reservation
+from django_summernote.admin import SummernoteModelAdmin
+from .models import Reservation, Page
 
 # Register your models here.
 
@@ -11,3 +12,9 @@ class ReservationAdmin(admin.ModelAdmin):
         'name', 'email', 'phone', 'reservation_date', 'reservation_time',
         'guests', 'special_request', 'status',
     )
+
+
+@admin.register(Page)
+class PageAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('banner',)
