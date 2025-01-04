@@ -16,13 +16,12 @@ class Page(models.Model):
     def __str__(self):
         return self.label
 
+
 class Reservation(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone = models.CharField(max_length=15, default="Unknown")
+    guests = models.IntegerField(default=1)
     reservation_date = models.DateField(default=date.today)
     reservation_time = models.TimeField(default=time(13, 0))
-    guests = models.IntegerField(default=1)
     special_request = models.TextField(null=True, blank=True)
     status = models.CharField(
         max_length=50, choices=STATUS_CHOICES, default='Pending')
