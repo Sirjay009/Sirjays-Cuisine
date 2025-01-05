@@ -24,7 +24,7 @@ def reservation_view(request):
     context = {
         'reservation': reservation,
         'reservation_form': reservation_form,
-        'page_items': page_items
+        'page_items': page_items,
     }
     
     return render(
