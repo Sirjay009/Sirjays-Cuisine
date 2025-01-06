@@ -9,8 +9,8 @@ from .models import Reservation, Page
 class ReservationAdmin(admin.ModelAdmin):
 
     list_display = (
-        'name', 'guests', 'reservation_date', 'reservation_time',
-        'special_request',
+        'name', 'email', 'phone', 'guests', 'reservation_date',
+        'reservation_time', 'special_request',
     )
 
 
