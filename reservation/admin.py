@@ -10,7 +10,7 @@ class ReservationAdmin(admin.ModelAdmin):
 
     list_display = (
         'name', 'guests', 'reservation_date', 'reservation_time',
-        'special_request', 'status',
+        'special_request',
     )
 
 
