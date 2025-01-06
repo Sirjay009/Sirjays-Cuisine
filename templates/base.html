@@ -51,23 +51,20 @@
                             href="{% url 'reservation-urls:reservation' %}">Reservation</a>
                     </li>
                     {% if user.is_authenticated %}
-                      <li class="nav-item">
-                        <a
-                          class="nav-link {% if request.path == logout_url %}active" aria-current="page{%endif%}"
-                          href="{% url 'account_logout' %}">Logout</a>
-                      </li>
-                      {% else %}
-                      <li class="nav-item">
-                        <a
-                          class="nav-link {% if request.path == signup_url %}active" aria-current="page{%endif%}"
-                          href="{% url 'account_signup' %}">Register</a>
-                      </li>
-                      <li class="nav-item">
-                        <a
-                          class="nav-link {% if request.path == login_url %}active" aria-current="page{%endif%}"
-                          href="{% url 'account_login' %}">Login</a>
-                      </li>
-                      {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{%endif%}"
+                            href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{%endif%}"
+                            href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{%endif%}"
+                            href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <span class="navbar-text text-muted">
                     adventures of a software developer
@@ -90,7 +87,7 @@
         </div>
     </div>
     <main class="flex-shrink-0 main-bg">
-        
+
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
@@ -100,13 +97,15 @@
     <footer class="footer mt-auto py-3 bg-dark">
         <p class="m-0 text-center text-white">
             {% block copyright %}
-            Made by Code Institute
-            <p>Address:</p>
-            <p>124 Schulenburger Str. Hannover Germany</p>
-            <p>Tel: +49176711858810</p>
+            Sirjay's Cuisine 2024
+            <div class="opaque-overlay">&nbsp;</div>
+            <div class="text-white text-center">
+                <p style="margin:0;">Address: 124 Schulenburger Str. Hannover Germany</p>
+                <p>Tel: +49176711858810</p>
+            </div>
             {% endblock copyright %}
         </p>
-        <p class="m-0 text-center text-white">Follow us: 
+        <p class="m-0 text-center text-white">Follow us:
             <a href="https://www.facebook.com" target="_blank" class="text-decoration-none text-white">
                 <i class="fab fa-facebook-square ms-3"></i>
             </a>
@@ -118,7 +117,7 @@
             </a>
             <a href="https://www.pinterest.com" target="_blank" class="text-decoration-none text-white">
                 <i class="fab fa-pinterest-square ms-3"></i>
-            </a>   
+            </a>
         </p>
     </footer>
 
