@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404, reverse
+from django.shortcuts import render, get_list_or_404, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ReservationForm
@@ -19,6 +19,7 @@ def reservation_detail(request):
                 request, messages.SUCCESS,
                 "Reservation successfully made!"
             )
+            return redirect('reservation_detail', id=reservation.id)
 
     reservation = Reservation.objects.all()
     reservation_form = ReservationForm()
@@ -32,6 +33,14 @@ def reservation_detail(request):
 
     return render(
         request, 'reservation/reservation_list.html', context)
+
+
+def reservation_data(request, id):
+    reservation = get_object_or_404(Reservation, id=id)
+    return render(
+        request,
+        'reservation/reservation_data.html',
+        {'reservation': reservation})
 
 
 def reservation_edit(request, reservation_id):
@@ -55,8 +64,7 @@ def reservation_edit(request, reservation_id):
                 request, messages.ERROR,
                 "Error updating reservation!"
             )
-    
+
     return HttpResponseRedirect(
         reverse("reservation_detail", args=[id])
     )
-
