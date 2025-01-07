@@ -6,12 +6,13 @@ from .models import Reservation, Page
 # Create your views here.
 
 
-def reservation_view(request):
+def reservation_detail(request):
 
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
-            reservation_form.save()
+            reservation = reservation_form.save(commit=False)
+            reservation.name = request.user
             messages.add_message(
                 request, messages.SUCCESS,
                 "Reservation successfully made!"

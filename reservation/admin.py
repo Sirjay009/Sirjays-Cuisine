@@ -9,7 +9,7 @@ from .models import Reservation, Page
 class ReservationAdmin(admin.ModelAdmin):
 
     list_display = (
-        'user', 'name', 'email', 'phone', 'guests', 'reservation_date',
+        'name', 'email', 'phone', 'guests', 'reservation_date',
         'reservation_time', 'special_request',
     )
 
