@@ -19,7 +19,7 @@ def reservation_detail(request):
                 request, messages.SUCCESS,
                 "Reservation successfully made!"
             )
-            return redirect('reservation_detail', id=reservation.id)
+            return redirect('reservation_data', id=reservation.id)
 
     reservation = Reservation.objects.all()
     reservation_form = ReservationForm()
