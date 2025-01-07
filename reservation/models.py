@@ -4,6 +4,7 @@ from datetime import date, time
 
 # Create your models here.
 
+
 class Page(models.Model):
     label = models.CharField(max_length=200)
     banner = models.TextField()
@@ -25,4 +26,3 @@ class Reservation(models.Model):
 
     def __str__(self):
         return self.name
-
