@@ -21,12 +21,12 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 my-5">
-            <form method="post">
+            <form id="reservationForm" method="post" style="margin-top: 1.3em;">
                 {{ reservation_form | crispy }}
                 {% csrf_token %}
-                <button class="btn btn-outline-dark" type="submit">Reserve</button>
-                <button class="btn btn-outline-dark btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-                <button class="btn btn-outline-dark btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+                <button class="btn btn-outline-dark" id="reserveButton" type="submit">Reserve</button>
+                <button class="btn btn-outline-dark btn-edit" data-reservation_id="{{ reservation.id }}">Edit</button>
+                <button class="btn btn-outline-dark btn-delete" data-reservation_id="{{ reservation.id }}">Delete</button>
             </form>
         </div>
     </div>
@@ -42,4 +42,8 @@ Sirjay's Cuisine 2024
 </div>
 
 </article>
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/reservation.js' %}"></script>
 {% endblock %}
