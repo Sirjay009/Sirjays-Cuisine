@@ -11,9 +11,8 @@ def reservation_detail(request):
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
-            reservation = reservation_form.save()
+            reservation = reservation_form.save(commit=False)
             reservation.user = request.user
-            reservation.user = reservation
             reservation.save()
             messages.add_message(
                 request, messages.SUCCESS,
