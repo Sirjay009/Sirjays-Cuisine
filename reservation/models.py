@@ -14,7 +14,7 @@ class Page(models.Model):
 
 class Reservation(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="customer", default=1)
+        User, on_delete=models.CASCADE, related_name="reservations")
     name = models.CharField(max_length=100)
     email = models.EmailField(default="no-email@example.com")
     phone = models.CharField(max_length=15, default="Unknown")
