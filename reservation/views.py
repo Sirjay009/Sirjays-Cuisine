@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404, reverse
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .forms import ReservationForm
 from .models import Reservation, Page
 
@@ -31,3 +32,31 @@ def reservation_detail(request):
 
     return render(
         request, 'reservation/reservation_list.html', context)
+
+
+def reservation_edit(request, reservation_id):
+    if request.method == "POST":
+        queryset = Reservation.objects.all()
+        reservation = get_list_or_404(queryset, id=id)
+        detail = get_list_or_404(Reservation, pk=reservation_id)
+        reservation_form = ReservationForm(data=request.POST, instance=detail)
+
+        if reservation_form.is_valid() and reservation.user == request.user:
+            reservation = reservation_form.save(commit=False)
+            detail.reservation = reservation
+            detail.approved = False
+            detail.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                "Reservation Updated!"
+            )
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                "Error updating reservation!"
+            )
+    
+    return HttpResponseRedirect(
+        reverse("reservation_detail", args=[id])
+    )
+
