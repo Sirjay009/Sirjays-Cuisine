@@ -21,15 +21,35 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 my-5">
-            <form id="reservationForm" method="post" style="margin-top: 1.3em;">
-                {{ reservation_form | crispy }}
-                {% csrf_token %}
-                <button class="btn btn-outline-dark" id="reserveButton" type="submit">Reserve</button>
-                <button class="btn btn-outline-dark btn-edit" data-reservation_id="{{ reservation.id }}">Edit</button>
-                <button class="btn btn-outline-dark btn-delete" data-reservation_id="{{ reservation.id }}">Delete</button>
-            </form>
+            <h2>Your Reservations</h2>
+            <ul>
+                {% for reservation in reservations %}
+                <li>
+                    {{ reservation.name }} on {{ reservation.reservation_date }} at {{ reservation.reservation_time }}
+                    <button>View</button>
+                    <button>Edit</button>
+                    <form action="" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5">
+            <h2>Make a New Reservation</h2>
+            <div class="form-container">
+                <form id="reservationForm" method="post" style="margin-top: 1.3em;">
+                    {{ reservation_form | crispy }}
+                    {% csrf_token %}
+                    <button class="btn btn-outline-dark" id="reserveButton" type="submit">Reserve</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </article>
 {% endblock %}
 
