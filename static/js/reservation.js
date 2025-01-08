@@ -1,16 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const editButtons = document.querySelectorAll(".btn-edit"); // Select all edit buttons
+const reservationForm = document.getElementById("reservationForm");
+const editButtons = document.querySelectorAll(".btn-edit");
 
-    editButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            // Get reservation ID from data attribute
-            const reservationId = event.target.getAttribute("data-reservation_id");
-
-            // Construct the Edit URL (update 'reservation_edit' to match your URL pattern)
-            const editUrl = `/reservation/edit/${reservationId}/`;
-
-            // Redirect the user to the Edit URL
-            window.location.href = editUrl;
-        });
+for (let button of editButtons){
+    button.addEventListener("click", (e) => {
+        let reservationId = e.target.getAttribute("data-reservation-id");
+        reservationForm.setAttribute("action", `reservation_edit/${reservationId}`);
     });
-});
+}

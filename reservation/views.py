@@ -42,14 +42,13 @@ def reservation_data(request, id):
 
 
 def reservation_edit(request, reservation_id):
-    reservation = get_object_or_404(
-        Reservation, id=reservation_id, user=request.user)
+    reservation = get_object_or_404(Reservation, id=reservation_id)
     if request.method == "POST":
         form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
             messages.success(request, "Reservation updated successfully!")
-            return redirect('reservation_data', id=reservation.id)
+            return redirect('reservation')
     else:
         form = ReservationForm(instance=reservation)
     return render(request, 'reservation/reservation_edit.html', {'form': form})
