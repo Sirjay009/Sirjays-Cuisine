@@ -1,0 +1,13 @@
+<article>
+    <h2>Edit Reservation</h2>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-outline-dark btn-edit" data-reservation_id="{{ reservation.id }}">Save Changes</button>
+            </form>
+            <a href="{% url 'reservation_list' reservation.id %}" class="btn btn-outline-dark">Cancel</a>
+        </div>
+    </div>
+</article>
