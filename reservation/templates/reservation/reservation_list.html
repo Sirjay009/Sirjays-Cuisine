@@ -20,27 +20,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 my-5">
-            <h2>Your Reservations</h2>
-            <ul>
-                {% for reservation in reservations %}
-                <li>
-                    {{ reservation.name }} on {{ reservation.reservation_date }} at {{ reservation.reservation_time }}
-                    (ID: {{ reservation.id }}) <!-- Debugging ID -->
-                    <div class="form-container">
-                        <form action="" method="POST" style="display:inline;">
-                            {% csrf_token %}
-                            <a href="" class="btn btn-edit btn-outline-dark" data-reservation_id="{{ reservation.id }}">Edit</a>
-                            <a href="" class="btn btn-delete btn-outline-dark" data-reservation_id="{{ reservation.id }}">Delete</a>
-                        </form>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 my-5">
-            <h2>Make a New Reservation</h2>
+            <h2>Make a Reservation</h2>
             <div class="form-container">
                 <form id="reservationForm" method="post" style="margin-top: 1.3em;">
                     {{ reservation_form | crispy }}
@@ -50,7 +30,28 @@
             </div>
         </div>
     </div>
-
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 my-5">
+            <h2>Your Reservations</h2>
+            <ul>
+                {% for reservation in reservations %}
+                <li>
+                    {{ reservation.name }} on {{ reservation.reservation_date }} at {{ reservation.reservation_time }}
+                    (ID: {{ reservation.id }})
+                    <!-- Debugging ID -->
+                    <div class="form-container">
+                        <form action="" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <a href="{% url 'reservation_edit' reservation.id %}" class="btn btn-edit btn-outline-dark">Edit</a>
+                            <a href="" class="btn btn-delete btn-outline-dark"
+                                data-reservation_id="{{ reservation.id }}">Delete</a>
+                        </form>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </article>
 {% endblock %}
 
