@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .forms import ReservationForm
 from .models import Reservation, Page
 
@@ -41,14 +42,33 @@ def reservation_data(request, id):
 # Edit an existing reservation
 
 
-def reservation_edit(request, reservation_id):
-    reservation = get_object_or_404(Reservation, id=reservation_id)
+def reservation_edit(request, id):
     if request.method == "POST":
-        form = ReservationForm(request.POST, instance=reservation)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Reservation updated successfully!")
-            return redirect('reservation')
-    else:
-        form = ReservationForm(instance=reservation)
-    return render(request, 'reservation/reservation_edit.html', {'form': form})
+        queryset = Reservation.objects.filter(user=request.user)
+        reservation = get_object_or_404(queryset, id=id)
+        reservations = get_object_or_404(Reservation, pk=id)
+        reservation_form = ReservationForm(data=request.Reservation, instance=reservations)
+
+        if reservation_form.is_valid() and reservation.user == request.user:
+            reservations = reservation_form.save(commit=False)
+            reservations.reservation = reservation
+            reservations.approved = False
+            reservations.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                "Reservation Updated!"
+            )
+
+        else:
+            messages.add_message(
+                request, messages.SUCCESS,
+                "Error Updating Reservation!"
+            )
+
+        return HttpResponseRedirect(
+            reverse("reservation_edit", kwargs=[id])
+        )
+
+    
+    
+    

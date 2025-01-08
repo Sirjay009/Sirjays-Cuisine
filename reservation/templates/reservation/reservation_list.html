@@ -25,11 +25,12 @@
                 {% for reservation in reservations %}
                 <li>
                     {{ reservation.name }} on {{ reservation.reservation_date }} at {{ reservation.reservation_time }}
+                    (ID: {{ reservation.id }}) <!-- Debugging ID -->
                     <div class="form-container">
                         <form action="" method="POST" style="display:inline;">
                             {% csrf_token %}
-                            <button class="btn-edit" data-reservation-id="{{ reservation.id }}">Edit</button>
-                            <button type="submit">Delete</button>
+                            <a href="" class="btn btn-edit btn-outline-dark" data-reservation_id="{{ reservation.id }}">Edit</a>
+                            <a href="" class="btn btn-delete btn-outline-dark" data-reservation_id="{{ reservation.id }}">Delete</a>
                         </form>
                     </div>
                 </li>
@@ -65,5 +66,5 @@ Sirjay's Cuisine 2024
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/reservation.js' %}"></script>
+<script src="{% static 'js/reservations.js' %}"></script>
 {% endblock %}
