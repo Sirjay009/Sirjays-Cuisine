@@ -15,7 +15,6 @@
                 </header>
                 <p class="lead">{{ page.banner | safe }}</p>
                 {% endfor %}
-
             </div>
         </div>
     </div>
@@ -26,12 +25,13 @@
                 {% for reservation in reservations %}
                 <li>
                     {{ reservation.name }} on {{ reservation.reservation_date }} at {{ reservation.reservation_time }}
-                    <button>View</button>
-                    <button>Edit</button>
-                    <form action="" method="POST" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit">Delete</button>
-                    </form>
+                    <div class="form-container">
+                        <form action="" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button class="btn-edit" data-reservation_id="{{ reservation.id }}">Edit</button>
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
                 </li>
                 {% endfor %}
             </ul>
