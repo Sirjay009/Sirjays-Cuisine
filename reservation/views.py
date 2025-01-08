@@ -1,13 +1,12 @@
-from django.shortcuts import render, get_list_or_404, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from .forms import ReservationForm
 from .models import Reservation, Page
 
 # Create your views here.
 
 
-def reservation_detail(request):
+def reservation_list(request):
 
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
@@ -19,14 +18,13 @@ def reservation_detail(request):
                 request, messages.SUCCESS,
                 "Reservation successfully made!"
             )
-            return redirect('reservation_data', id=reservation.id)
 
-    reservation = Reservation.objects.all()
+    reservations = Reservation.objects.filter(user=request.user)
     reservation_form = ReservationForm()
     page_items = Page.objects.all()
 
     context = {
-        'reservation': reservation,
+        'reservations': reservations,
         'reservation_form': reservation_form,
         'page_items': page_items,
     }
@@ -35,36 +33,23 @@ def reservation_detail(request):
         request, 'reservation/reservation_list.html', context)
 
 
+# View a single reservation's details
 def reservation_data(request, id):
-    reservation = get_object_or_404(Reservation, id=id)
-    return render(
-        request,
-        'reservation/reservation_data.html',
-        {'reservation': reservation})
+    reservation = get_object_or_404(Reservation, id=id, user=request.user)
+    return render(request, 'reservation/reservation_data.html', {'reservation': reservation})
+
+# Edit an existing reservation
 
 
 def reservation_edit(request, reservation_id):
+    reservation = get_object_or_404(
+        Reservation, id=reservation_id, user=request.user)
     if request.method == "POST":
-        queryset = Reservation.objects.all()
-        reservation = get_list_or_404(queryset, id=id)
-        detail = get_list_or_404(Reservation, pk=reservation_id)
-        reservation_form = ReservationForm(data=request.POST, instance=detail)
-
-        if reservation_form.is_valid() and reservation.user == request.user:
-            reservation = reservation_form.save(commit=False)
-            detail.reservation = reservation
-            detail.approved = False
-            detail.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                "Reservation Updated!"
-            )
-        else:
-            messages.add_message(
-                request, messages.ERROR,
-                "Error updating reservation!"
-            )
-
-    return HttpResponseRedirect(
-        reverse("reservation_detail", args=[id])
-    )
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Reservation updated successfully!")
+            return redirect('reservation_data', id=reservation.id)
+    else:
+        form = ReservationForm(instance=reservation)
+    return render(request, 'reservation/reservation_edit.html', {'form': form})
