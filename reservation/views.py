@@ -72,4 +72,5 @@ def reservation_delete(request, id):
     reservation.delete()
     messages.success(request, "Reservation deleted successfully!")
 
-    return HttpResponseRedirect(reverse("reservation"))
+    return HttpResponseRedirect(
+        reverse("reservation"))
