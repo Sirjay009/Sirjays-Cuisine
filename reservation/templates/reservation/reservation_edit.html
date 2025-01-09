@@ -12,6 +12,7 @@
                 {{ reservation_form | crispy }}
                 {% csrf_token %}
                 <button type="submit" id="submitButton" class="btn btn-outline-dark">Update Reservation</button>
+                <a href="{% url 'reservation' %}" class="btn btn-edit btn-outline-dark">Cancel</a>
             </form>>
         </div>
     </div>
