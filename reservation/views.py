@@ -46,7 +46,8 @@ def reservation_edit(request, id):
     reservation = get_object_or_404(Reservation, id=id, user=request.user)
 
     if request.method == "POST":
-        reservation_form = ReservationForm(data=request.POST, instance=reservation)
+        reservation_form = ReservationForm(
+            data=request.POST, instance=reservation)
 
         if reservation_form.is_valid():
             reservation_form.save()
@@ -63,4 +64,12 @@ def reservation_edit(request, id):
         "reservation/reservation_edit.html",
         {"reservation_form": reservation_form, "reservation": reservation},
     )
-    
+
+
+def reservation_delete(request, id):
+    reservation = get_object_or_404(Reservation, id=id, user=request.user)
+
+    reservation.delete()
+    messages.success(request, "Reservation deleted successfully!")
+
+    return HttpResponseRedirect(reverse("reservation"))
