@@ -1,9 +1,13 @@
-const reservationForm = document.getElementById("reservationForm");
-const editButtons = document.querySelectorAll(".btn-edit");
+const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+const deleteButtons = document.getElementsByClassName('btn-delete');
+const deleteConfirm = document.getElementById('deleteConfirm');
 
-for (let button of editButtons){
-    button.addEventListener("click", (e) => {
-        let reservationId = e.target.getAttribute("data-reservation_id");
-        reservationForm.setAttribute("action", `reservation_edit/${reservationId}`);
+for (let button of deleteButtons) {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        let reservationId = e.target.dataset.reservationId;
+
+        deleteConfirm.href = `/reservation/${reservationId}/delete/`;
+        deleteModal.show();
     });
 }
