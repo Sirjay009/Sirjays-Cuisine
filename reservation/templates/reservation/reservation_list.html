@@ -43,7 +43,7 @@
                         <form action="" method="POST" style="display:inline;">
                             {% csrf_token %}
                             <a href="{% url 'reservation_edit' reservation.id %}" class="btn btn-edit btn-outline-dark">Edit</a>
-                            <button type="submit" class="btn btn-delete btn-outline-dark">Delete</button>
+                            <button type="submit" class="btn btn-delete btn-outline-dark" data-reservation_id="{{ reservation.id }}">Delete</button>
                         </form>
                     </div>
                 </li>
