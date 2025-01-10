@@ -8,7 +8,18 @@ from .models import Reservation, Page
 
 
 def reservation_list(request):
+    """
+    Renders the most recent reservation.
+    Displays an individual instance of :model:`reservation.Reservation`.
 
+    **Context**
+    ``reservation``
+         The most recent instance of :model:`reservation.Reservation`.
+
+    **Template**
+         :template:`reservation/reservation_list.html`.
+
+    """ 
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
@@ -34,16 +45,19 @@ def reservation_list(request):
         request, 'reservation/reservation_list.html', context)
 
 
-# View a single reservation's details
-def reservation_data(request, id):
-    reservation = get_object_or_404(Reservation, id=id, user=request.user)
-    return render(request, 'reservation/reservation_data.html', {
-        'reservation': reservation})
-
-# Edit an existing reservation
-
-
 def reservation_edit(request, id):
+    """
+    Display an individual reservation for edit.
+
+    **Context**
+    ``reservation``
+       An instance of :model:`reservation.Reservation`.
+    ``reservation``
+       A single reservation related to the reservation form.
+    ``reservation_form``
+       An instance of :form:`ReservationForm`.
+
+    """
     reservation = get_object_or_404(Reservation, id=id, user=request.user)
 
     if request.method == "POST":
@@ -68,6 +82,15 @@ def reservation_edit(request, id):
 
 
 def reservation_delete(request, id):
+    """
+    Delete an individual reservation.
+
+    **Context**
+    ``reservation``
+       An instance of :model:`reservation.Reservation`.
+    ``comment``
+       A single reservation related to the reservation.
+    """
     reservation = get_object_or_404(Reservation, id=id, user=request.user)
 
     reservation.delete()

@@ -5,6 +5,18 @@ from .models import Home, Menu
 
 
 def home_view(request):
+    """
+    Renders the landing page.
+    Displays an individual instance of :model:`home.Menu`.
+
+    **Context**
+    ``home``
+         The most recent instance of :model:`home.Menu`.
+
+    **Template**
+         :template:`home/home_list.html`.
+
+    """
     home = Home.objects.all()  # Query all home items
     menu_items = Menu.objects.all()      # Query all menu items
     context = {
