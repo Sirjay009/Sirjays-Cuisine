@@ -22,7 +22,7 @@
         <div class="col-12 col-md-6 my-5">
             <h2>Make a Reservation</h2>
             <div class="form-container">
-                <form id="reservationForm" method="post" style="margin-top: 1.3em;">
+                <form id="reservationForm" method="post" class="reserve-form">
                     {{ reservation_form | crispy }}
                     {% csrf_token %}
                     <button class="btn btn-outline-dark" id="reserveButton" type="submit">Reserve</button>
@@ -40,7 +40,7 @@
                     (ID: {{ reservation.id }})
                     <!-- Debugging ID -->
                     <div class="form-container">
-                        <form action="" method="POST" style="display:inline;">
+                        <form action="" method="POST" class="reserve-instance-form">
                             {% csrf_token %}
                             <a href="{% url 'reservation_edit' reservation.id %}" class="btn btn-edit btn-outline-dark">Edit</a>
                             <a href="{% url 'reservation_delete' reservation.id %}" class="btn btn-delete btn-outline-dark" data-reservation_id="{{ reservation.id }}">Delete</a>
