@@ -19,7 +19,7 @@
                 {% if user.is_authenticated %}
                 <a href="{% url 'reservation' %}" class="btn btn-outline-dark">Make a Reservation</a>
                 {% else %}
-                <p>You must be logged in to make a reservation. <a href="{% url 'account_login' %}">Log in here</a>.</p>
+                <p>You must be logged in to make a reservation. <a href="{% url 'account_login' %}">Login here</a>.</p>
                 {% endif %}
                 {% endfor %}
             </div>
