@@ -37,7 +37,8 @@ def reservation_list(request):
 # View a single reservation's details
 def reservation_data(request, id):
     reservation = get_object_or_404(Reservation, id=id, user=request.user)
-    return render(request, 'reservation/reservation_data.html', {'reservation': reservation})
+    return render(request, 'reservation/reservation_data.html', {
+        'reservation': reservation})
 
 # Edit an existing reservation
 

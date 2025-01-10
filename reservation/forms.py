@@ -8,4 +8,4 @@ class ReservationForm(forms.ModelForm):
         fields = (
             'name', 'email', 'phone', 'guests', 'reservation_date',
             'reservation_time', 'special_request'
-            )
+        )
