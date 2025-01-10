@@ -8,3 +8,11 @@
     text-align: center; /* Centers the text */
     color: white; /* Ensures text is readable on a dark background */
 }
+
+.reserve-form {
+    margin-top: 1.3em;
+}
+
+.reserve-instance-form {
+    display: inline;
+}
