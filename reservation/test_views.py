@@ -60,6 +60,38 @@ class TestReservationViews(TestCase):
         with self.assertRaises(Reservation.DoesNotExist):
             Reservation.objects.get(id=self.reservation.id)
 
+    def test_successful_reservation_submission(self):
+        """Test that a valid POST request creates a new reservation."""
+        post_data = {
+            "name": "Chima",
+            "phone": "12345689",
+            "guests": 4,
+            "reservation_date": "2025-01-15",
+            "reservation_time": "18:30:00",
+            "special_request": "Window seat",
+        }
+
+        response = self.client.post(reverse("reservation"), data=post_data)
+
+        # Check that the response redirects (status code 302)
+        self.assertEqual(response.status_code, 200)
+
+        # Follow the redirect
+        response = self.client.get(reverse("reservation"))
+
+        # Check that the reservation was created in the database
+        self.assertEqual(Reservation.objects.count(), 1)
+        reservation = Reservation.objects.first()
+
+        # Verify the reservation details
+        self.assertEqual(reservation.name, "Chima")
+        self.assertEqual(reservation.phone, "12345689")
+        self.assertEqual(reservation.guests, 4)
+        self.assertEqual(str(reservation.reservation_date), "2025-01-15")
+        self.assertEqual(str(reservation.reservation_time), "18:30:00")
+        self.assertEqual(reservation.special_request, "Window seat")
+        self.assertEqual(reservation.user, self.user)
+
 
 class TestPageViews(TestCase):
 
