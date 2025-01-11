@@ -7,7 +7,6 @@ from cloudinary.models import CloudinaryField
 class Home(models.Model):
     """
     Stores a single title and slogan text.
-    
     """
     title = models.CharField(max_length=200)
     slogan = models.TextField()

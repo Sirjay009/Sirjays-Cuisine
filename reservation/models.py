@@ -8,7 +8,6 @@ from datetime import date, time
 class Page(models.Model):
     """
     Stores a single welcome and banner text.
-    
     """
     label = models.CharField(max_length=200)
     banner = models.TextField()
@@ -20,7 +19,6 @@ class Page(models.Model):
 class Reservation(models.Model):
     """
     Stores a single reservation entry related to :model:`auth.User`.
-    
     """
     name = models.CharField(max_length=100)
     user = models.ForeignKey(

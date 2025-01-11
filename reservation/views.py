@@ -19,7 +19,7 @@ def reservation_list(request):
     **Template**
          :template:`reservation/reservation_list.html`.
 
-    """ 
+    """
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
