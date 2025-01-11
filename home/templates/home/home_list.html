@@ -20,7 +20,7 @@
                 <a href="{% url 'reservation' %}" class="btn btn-outline-dark">Make a Reservation</a>
                 {% else %}
                 <a href="{% url 'account_login' %}" class="btn btn-success">Login to make a reservation</a>
-                <p>Don't have an account? <a href="{% url 'account_signup' %}" class="sign-up">Register here</a></p>
+                <p>Don't have an account? <a href="{% url 'account_signup' %}" class="sign-up">Register</a></p>
                 {% endif %}
                 {% endfor %}
             </div>
