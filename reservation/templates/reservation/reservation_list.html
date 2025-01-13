@@ -42,8 +42,8 @@
                     <div class="form-container">
                         <form action="" method="POST" class="reserve-instance-form">
                             {% csrf_token %}
-                            <a href="{% url 'reservation_edit' reservation.id %}" class="btn btn-edit btn-outline-dark">Edit</a>
-                            <a href="{% url 'reservation_delete' reservation.id %}" class="btn btn-delete btn-outline-dark" data-reservation_id="{{ reservation.id }}">Delete</a>
+                            <a href="{% url 'reservation_edit' reservation.id %}" class="btn btn-edit btn-primary">Edit</a>
+                            <a href="{% url 'reservation_delete' reservation.id %}" class="btn btn-delete btn-warning" data-reservation_id="{{ reservation.id }}">Delete</a>
                         </form>
                     </div>
                 </li>
