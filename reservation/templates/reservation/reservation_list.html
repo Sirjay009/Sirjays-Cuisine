@@ -25,7 +25,7 @@
                 <form id="reservationForm" method="post" class="reserve-form">
                     {{ reservation_form | crispy }}
                     {% csrf_token %}
-                    <button class="btn btn-outline-dark" id="reserveButton" type="submit">Reserve</button>
+                    <button class="btn btn-secondary" id="reserveButton" type="submit">Reserve</button>
                 </form>
             </div>
         </div>
