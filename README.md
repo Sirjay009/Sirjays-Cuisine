@@ -135,9 +135,8 @@
 
 <h2>Manual Testing</h2>
 <p>I manually tested the app to determine it's usability and intuitivity by self as an administrator and also with the help of 5 friends as site users.</p>
-<br>
 
-<h3>Administrator testing of admin panel</h3>
+<h3>- Administrator testing of admin panel -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -166,7 +165,7 @@
 </table>
 <br>
 
-<h3>User testing for menu display</h3>
+<h3>- User testing for menu display -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -179,7 +178,7 @@
 </table>
 <br>
 
-<h3>User testing of account authentication</h3>
+<h3>- User testing of account authentication -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -196,7 +195,7 @@
 </table>
 <br>
 
-<h3>User testing of reservation form's validity</h3>
+<h3>- User testing of reservation form's validity -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -214,7 +213,7 @@
 </table>
 <br>
 
-<h3>User testing of CRUD capabilities</h3>
+<h3>- User testing of CRUD capabilities -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -231,11 +230,42 @@
 </table>
 <br>
 
-<h2>Automated Testing</h2>
-<p>I tested the models, views and their GET/POST responses using django's automated tests.</p>
+<h2>HTML validation</h2>
+<p>I tested for HTML validation using the W3C validator by copying and pasting project's herokuapp URL into the URI validator section of W3C validator. I also logged in to be able to copy the rendered HTML from the 'View page source' page and paste into the 'direct input' validate section of the validator.</p>
+
+<h3>- W3C validation -</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Was all thrown up errors addressed?</td>
+    <td>Yes, save for a last error of a trialing closing paragraph tag which wasn't found upon multiply inspections.</td>
+  </tr>
+</table>
 <br>
 
-<h3>Home model/view</h3>
+<h2>Backend code validation</h2>
+<p>I further ran all python files on the Code Institute (CI) Python Linter checker to check if code meets pep8 requirements.</p>
+
+<h3>- CI Python Linter checker -</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Were all errors thrown up by the CI Python Linter checker addressed?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
+
+<h2>Automated Testing</h2>
+<p>I tested the models, views and their GET/POST responses using django's automated tests.</p>
+
+<h3>- Home model/view -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -248,7 +278,7 @@
 </table>
 <br>
 
-<h3>Reservation form validity</h3>
+<h3>- Reservation form validity -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -261,7 +291,7 @@
 </table>
 <br>
 
-<h3>Reservation views</h3>
+<h3>- Reservation views -</h3>
 <table>
 <tr>
     <th>Test</th>
@@ -309,7 +339,7 @@
 <h2>Bugs</h2>
 <p>Solved bugs</p>
 <ul>
-<li>The most significant bug I encountered was with the inability of the modal's delete button to complete deletion request. I kept getting the - Page not found (404) - error message despite re-confirming severally that the delete URL was properly constructed. After several hours of failed debugging attempts, I was able to identify that the bug was coming from a 'Namespace' I used in constructing the reservation URL in the project-level urls.py file. Once it was removed and reconstructed, the bug was solved to my delight.</li>
+<li>The most significant bug I encountered was with the inability of the modal's delete button to complete deletion request. I kept getting the - Page not found (404) - error message despite re-confirming severally that the delete URL was properly constructed. After several hours of failed debugging attempts, I was able to identify that the bug was coming from a 'Namespace' I used in constructing the reservation URL in the project-level urls.py file. Once it was removed and reconstructed, the bug was solved.</li>
 </ul>
 <br>
 
