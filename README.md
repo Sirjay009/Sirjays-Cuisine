@@ -1,131 +1,346 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1>Sirjay's Cuisine</h1>
 
-Welcome Chima Obutte,
+<img src="docs/readme.images/Capture.PNG" alt="A screen shot from amiresponsive.com of project">
+<br>
+<br>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<p>Sirjay's Cuisine is a Full-Stack eat-in reservation site that centrally manages dataset. The site utilizes a number of functionalities including user authentication and CRUD capabilities, to ensure seamless table reservations and management by users and site administrators. Site administrators are able to flexibly modify the menu highlights and also view and manage submitted reservations from the admin page. The intent and essence of this project is to set up a reservation authentication mechanism while also providing role-based access to the site's data or other activities based on the dataset.</p>
+<h3>User</h3>
+<ul>
+<li>As a user, i want to be able to see the restaurants menu highlights on her home page.</li>
+<li>As a user, i want to be able to have access to a reservation form.</li>
+<li>As a user, i want to be able to make a reservation.</li>
+<li>As a user, i want to be able to view and manage my reservations.</li>
+</ul>
+<h3>Site Owner</h3>
+<ul>
+<li>As a site owner, i want to be able to flexibly update menu highlights from the admin page.</li>
+<li>As a site owner, i want to be able to authenticate users before they can proceed to make reservations.</li>
+<li>As a site owner, i want to be able to view and manage all reservations from the admin page.</li>
+</ul>
+<br>
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+<h2>Features</h2>
+<p>In achieving the aforementioned project goals, i incorporated the underlisted features.</p>
 
-## Gitpod Reminders
+<h3>1. Agile methodology</h3>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+<ul>
+<li>I employed GitHub's Label and Milestones functionalities as my Agile tool, to document and implement all User Stories and map them to the project.</li>
+</ul>
+<img src="docs/readme.images/Milestones1.PNG" alt="A screen shot of GitHub's Milestones User Stories Agile implementation.">
+<br>
+<br>
+<br>
+<ul>
+<li>I made use of GitHub's Kanban board functionaly to track the progress and current status of the work progress for every particular iteration.</li>
+</ul>
+<img src="docs/readme.images/Kanban.PNG" alt="A screen shot of GitHub's Kanban board showing work iterations' status.">
+<br>
+<br>
+<br>
+<ul>
+<li>I also created as part of the design process, a wireframe of the project's database schema that guided my development of the site.</li>
+</ul>
+<img src="docs/readme.images/DatabaseSchema.jpg" alt="A pictorial representation of project's database schema wireframe.">
+<br>
+<br>
+<br>
+<br>
 
-`python3 -m http.server`
+<h3>2. Authorisation/Authentication Features</h3>
 
-A blue button should appear to click: _Make Public_,
+<ul>
+<li>I applied authorisation/authentication features to ensure only registered users are able to make reservations.</li>
+</ul>
+<img src="docs/readme.images/Register.PNG" alt="A screen shot of site's 'authorization/authentication' features.">
+<br>
+<br>
+<br>
+<br>
+<br>
 
-Another blue button should appear to click: _Open Browser_.
+<h3>3. CRUD functionality</h3>
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+<ul>
+<li>I created CRUD functionality for users so they are able to create, edit and delete their reservations at will.</li>
+</ul>
+<img src="docs/readme.images/CRUD.PNG" alt="A screen shot of site's 'Reserve', 'Edit' and 'Delete' buttons.">
+<br>
+<br>
+<br>
+<br>
 
-A blue button should appear to click: _Make Public_,
+<h3>Future Features</h3>
+<ul>
+<li>Allow users recieve email notifications for completed reservations and CRUD operations.</li>
+</ul>
+<br>
 
-Another blue button should appear to click: _Open Browser_.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<h2>Technology Used</h2>
+<P><strong>Python+Django</strong></P>
+<ul>
+<li>Python+Django programming language is the sole technology used to accomplish this project.</li>
+</ul>
+<br>
 
-To log into the Heroku toolbelt CLI:
+<P><strong>HTML</strong></P>
+<ul>
+<li>HTML is the standard markup language used for the app's development.</li>
+</ul>
+<br>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<P><strong>CSS</strong></P>
+<ul>
+<li>I utilized a little bit of CSS language to style HTML elements.</li>
+</ul>
+<br>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+<P><strong>JavaScript</strong></P>
+<ul>
+<li>I targeted the delete buttons with some JavaScript code.</li>
+</ul>
+<br>
 
-### Connecting your Mongo database
+<P><strong>PostgresSQL</strong></P>
+<ul>
+<li>I employed PostgresSQL relational database for the collection and structuring of the project's data.</li>
+</ul>
+<br>
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+<P><strong>Summernote</strong></P>
+<ul>
+<li>I applied the robust Summernote text editor to my admin panel to enhance it with rich text.</li>
+</ul>
+<br>
 
-------
+<P><strong>Whitenoise</strong></P>
+<ul>
+<li>I installed the whitenoise package to enable Heroku app serve it's own static fies.</li>
+</ul>
+<br>
 
-## Release History
+<P><strong>AllAuth</strong></P>
+<ul>
+<li>I installed and utilized django-allauth authentication package to integrate a secure Python authorisation solution to the project.</li>
+</ul>
+<br>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<P><strong>Cloudinary</strong></P>
+<ul>
+<li>Lastly, I installed and set up Cloudinary media storage to allow user-upload of images in the project.</li>
+</ul>
+<br>
 
-**June 18, 2024,** Add Mongo back into template
+<h2>Manual Testing</h2>
+<p>I manually tested the app to determine it's usability and intuitivity by self as an administrator and also with the help of 5 friends as site users.</p>
+<br>
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+<h3>Administrator testing of admin panel</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Have created models been added to the database?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Are you ablel to create items for each of these models in the admin page?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Are you able to perform CRUD operations on datasets from the admin page?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**May 28 2024:** Fix Mongo and Links installs
+<h3>User testing for menu display</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Are you able to see the displayed menu highlights when on the landing page?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**April 26 2024:** Update node version to 16
+<h3>User testing of account authentication</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Are you able to register to be able to proceed with reservation?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Are you able to log in with your registered user details?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**September 20 2023:** Update Python version to 3.9.17.
+<h3>User testing of reservation form's validity</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Are you able to input data into the reservation form and reserve successfully?</td>
+    <td>Pass</td>
+  </tr>
+  </tr>
+   <tr>
+    <td>Does your reservation display for you to see after it's sucessfully made?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+<h3>User testing of CRUD capabilities</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Are you able to edit your reservation(s)?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Are you able to delete unwanted reservation(s)?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+<h2>Automated Testing</h2>
+<p>I tested the models, views and their GET/POST responses using django's automated tests.</p>
+<br>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<h3>Home model/view</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does the Home model view render home and menu items?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+<h3>Reservation form validity</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does reservation form pass validity test when data is inputted and not inputted?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+<h3>Reservation views</h3>
+<table>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does the reservation_list view render 'Page' items?</td>
+    <td>Pass</td>
+  </tr>
+<tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does the reservation_list view include a reservation form?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does the reservation_edit view render correctly with a GET request?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does the reservation_delete completes reservation deletion?</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <th>Test</th>
+    <th>Outcome</th>
+  </tr>
+   <tr>
+    <td>Does a valid POST request create a new reservation?</td>
+    <td>Pass</td>
+  </tr>
+</table>
+<br>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+<h2>Bugs</h2>
+<p>Solved bugs</p>
+<ul>
+<li>The most significant bug I encountered was with the inability of the modal's delete button to complete deletion request. I kept getting the - Page not found (404) - error message despite re-confirming severally that the delete URL was properly constructed. After several hours of failed debugging attempts, I was able to identify that the bug was coming from a 'Namespace' I used in constructing the reservation URL in the project-level urls.py file. Once it was removed and reconstructed, the bug was solved to my delight.</li>
+</ul>
+<br>
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+<h3>Unfixed Bugs</h3>
+<p>No bugs remaining</p>
+<br>
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<h2>Deployment</h2>
+<p>The project was deployed to Heroku platform using the following steps:</p>
+<ul>
+<li>Go to Heroku welcome/dashboard page</li>
+<li>Click "Create new app"</li>
+<li>Fill out the form that pops up with a unique "App name" and select your region -"Europe"</li>
+<li>Click "Create app"</li>
+<li>On the next page that pops up, click on "Settings"</li>
+<li>Scroll down to "Config Vars" and click on "Reveal Config Vars"</li>
+<li>Make sure 'CLOUDINAR_URL', DATABASE_URL' and 'SECRET_KEY' variables have been added.</li>
+<li>On top of the page, click "Deploy" to select a deployment method </li>
+<li>Select GitHub</li>
+<li>Click "Connect to GitHub"</li>
+<li>Search for GitHub repo name, click "search" and then "connect"</li>
+<li>Scroll down and select which deployment option you prefer and "DEPLOY"!</li>
+</ul>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+<h2>Credits</h2>
+<p>Credit</p>
+<ul>
+<li>The Code Institute Django-Blog project's code was lifted mostly and used to accomplish this project.</li>
+<li>Pieces of code for the project was also taken from a number of online materials including, google, youtube channels, https://stackoverflow.com/ and also from the slack network.</li>
+</ul>
+<br>
+<h2>Acknowledgments</h2>
+<h4>Rory Patrick Sheridan</h4>
+<p>My mentor whose tutelage and immense assistance I sincerely appreciate and acknowledge.</p>
